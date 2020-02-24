@@ -2,6 +2,7 @@ package firewolf8385.simplepermissions;
 
 import firewolf8385.simplepermissions.commands.SP;
 import firewolf8385.simplepermissions.events.PlayerJoin;
+import firewolf8385.simplepermissions.events.PlayerQuit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -71,6 +72,7 @@ public class SimplePermissions extends JavaPlugin
     private void registerEvents()
     {
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
+        getServer().getPluginManager().registerEvents(new PlayerQuit(), this);
     }
 
 }
