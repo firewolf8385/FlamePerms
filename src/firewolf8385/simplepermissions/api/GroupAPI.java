@@ -202,6 +202,11 @@ public class GroupAPI
             e.printStackTrace();
         }
 
+        if(!group.equals("default"))
+        {
+            inheritedGroups.add("default");
+        }
+
         return inheritedGroups;
     }
 
