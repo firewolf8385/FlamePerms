@@ -1,13 +1,13 @@
 package firewolf8385.simplepermissions.api;
 
 import firewolf8385.simplepermissions.MySQL;
-import firewolf8385.simplepermissions.utils.Rank;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class GroupAPI
 {
@@ -15,6 +15,89 @@ public class GroupAPI
     private static final int FAMILY = 2;
     private static final int PERMISSIONS = 2;
     private static final int ORDER = 3;
+
+    /**
+     * Add a permission to a group.
+     * @param group Group to add permission to.
+     * @param permission The permission to be added.
+     */
+    public static void addPermission(String group, String permission)
+    {
+        try
+        {
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("INSERT INTO sp_group_permissions (name, permission) VALUES (?,?)");
+            statement.setString(1, group.toLowerCase());
+            statement.setString(2, permission);
+            statement.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Create a group.
+     * @param group Group to be created.
+     */
+    public static void createGroup(String group)
+    {
+        try
+        {
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("INSERT INTO sp_groups (name) VALUES (?)");
+            statement.setString(1, group.toLowerCase());
+
+            statement.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Delete a group from the database.
+     * @param group Group to be deleted.
+     */
+    public static void deleteGroup(String group)
+    {
+        // Deletes the group from sp_groups.
+        try
+        {
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("DELETE FROM sp_groups WHERE name = ?)");
+            statement.setString(1, group.toLowerCase());
+            statement.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        // Deletes the group from sp_group_permissions.
+        try
+        {
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("DELETE FROM sp_group_permissions WHERE name = ?)");
+            statement.setString(1, group.toLowerCase());
+            statement.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        // Deletes the group from sp_users.
+        try
+        {
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE sp_users SET groupName=? WHERE groupName = ?");
+            statement.setString(1, group.toLowerCase());
+            statement.setString(2, "default");
+            statement.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Get permissions of a group.
@@ -169,4 +252,83 @@ public class GroupAPI
         return false;
     }
 
+    /**
+     * Remove a permission from a group.
+     * @param group Group to remove permission from.
+     * @param permission Permission to be removed.
+     */
+    public static void removePermission(String group, String permission)
+    {
+        try
+        {
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("DELETE FROM sp_group_permissions WHERE name = ? AND permission = ?");
+            statement.setString(1, group.toLowerCase());
+            statement.setString(2, permission);
+            statement.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Set the family of a group.
+     * @param group Group to set the family of.
+     * @param family Family to set it to.
+     */
+    public static void setFamily(String group, String family)
+    {
+        try
+        {
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE sp_groups SET family=? WHERE name = ?");
+            statement.setString(1, family);
+            statement.setString(2, group.toLowerCase());
+            statement.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Set the order of a group.
+     * @param group Group to set the order of.
+     * @param order Order to set the group to.
+     */
+    public static void setOrder(String group, int order)
+    {
+        try
+        {
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE sp_groups SET order=? WHERE name = ?");
+            statement.setInt(1, order);
+            statement.setString(2, group.toLowerCase());
+            statement.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Set the group of a player.
+     * @param player Player to set the group of.
+     * @param group Group the player should be in.
+     */
+    public static void setPlayerGroup(UUID player, String group)
+    {
+        try
+        {
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE sp_users SET groupName=? WHERE uuid = ?");
+            statement.setString(1, group.toLowerCase());
+            statement.setString(2, player.toString());
+            statement.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
 }
