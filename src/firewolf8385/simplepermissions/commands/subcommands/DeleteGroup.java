@@ -10,7 +10,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class SetFamily implements CommandExecutor
+public class DeleteGroup implements CommandExecutor
 {
     private SettingsManager settings = SettingsManager.getInstance();
 
@@ -25,16 +25,15 @@ public class SetFamily implements CommandExecutor
         }
 
         // Check if not used correctly.
-        if(args.length < 2)
+        if(args.length == 0)
         {
-            ChatUtils.chat(sender, settings.getConfig().getString("Messages.setFamilyUsage"));
+            ChatUtils.chat(sender, settings.getConfig().getString("Messages.deleteGroupUsage"));
             return true;
         }
 
-        String group = args[0];
-        String family = args[1];
+        String group = args[0].toLowerCase();
 
-        // Check if group exists.
+        // Check if group already exists.
         if(!GroupAPI.groupExists(group))
         {
             ChatUtils.chat(sender, settings.getConfig().getString("Messages.groupDoesNotExist")
@@ -42,10 +41,8 @@ public class SetFamily implements CommandExecutor
             return true;
         }
 
-        GroupAPI.setFamily(group, family);
-        ChatUtils.chat(sender, settings.getConfig().getString("Messages.setFamily")
-                .replace("%group%", group)
-                .replace("%family%", family));
+        GroupAPI.deleteGroup(group);
+        ChatUtils.chat(sender, settings.getConfig().getString("Messages.groupDeleted").replace("%group%", args[0]));
 
         // Reset everyone's permissions.
         for(Player pl : Bukkit.getOnlinePlayers())
@@ -55,4 +52,5 @@ public class SetFamily implements CommandExecutor
 
         return true;
     }
+
 }

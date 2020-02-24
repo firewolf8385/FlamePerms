@@ -1,7 +1,7 @@
 package firewolf8385.simplepermissions.events;
 
 import firewolf8385.simplepermissions.MySQL;
-import firewolf8385.simplepermissions.utils.Permissions;
+import firewolf8385.simplepermissions.api.PlayerAPI;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -15,7 +15,7 @@ public class PlayerJoin implements Listener
     @EventHandler
     public void onJoin(PlayerJoinEvent e)
     {
-        if(!Permissions.exist(e.getPlayer()))
+        if(!PlayerAPI.playerExists(e.getPlayer()))
         {
             try
             {
@@ -30,7 +30,7 @@ public class PlayerJoin implements Listener
             }
         }
 
-        Permissions.assignPermissions(e.getPlayer());
+        PlayerAPI.assignPermissions(e.getPlayer());
     }
 
 }

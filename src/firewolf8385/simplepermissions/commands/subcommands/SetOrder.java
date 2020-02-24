@@ -1,18 +1,14 @@
 package firewolf8385.simplepermissions.commands.subcommands;
 
-import firewolf8385.simplepermissions.MySQL;
 import firewolf8385.simplepermissions.SettingsManager;
+import firewolf8385.simplepermissions.api.GroupAPI;
+import firewolf8385.simplepermissions.api.PlayerAPI;
 import firewolf8385.simplepermissions.utils.ChatUtils;
-import firewolf8385.simplepermissions.utils.Permissions;
-import firewolf8385.simplepermissions.utils.Rank;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 public class SetOrder implements CommandExecutor
 {
@@ -35,30 +31,25 @@ public class SetOrder implements CommandExecutor
             return true;
         }
 
+        String group = args[0];
+        int order = Integer.parseInt(args[1]);
+
         // Check if group exists.
-        if(!Rank.exists(args[0]))
+        if(!GroupAPI.groupExists(group))
         {
-            ChatUtils.chat(sender, settings.getConfig().getString("Messages.groupDoesNotExist").replace("%group%", args[0]));
+            ChatUtils.chat(sender, settings.getConfig().getString("Messages.groupDoesNotExist")
+                    .replace("%group%", group));
             return true;
         }
 
-        try
-        {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE sp_groups SET order=? WHERE name = ?");
-            statement.setInt(1, Integer.parseInt(args[1]));
-            statement.setString(2, args[0].toLowerCase());
+        ChatUtils.chat(sender, settings.getConfig().getString("Messages.setOrder")
+                .replace("%group%", group)
+                .replace("%order%", order + ""));
 
-            statement.executeUpdate();
-            ChatUtils.chat(sender, settings.getConfig().getString("Messages.setOrder").replace("%group%", args[0]).replace("%family%", args[1]));
-
-            for(Player pl : Bukkit.getOnlinePlayers())
-            {
-                Permissions.resetPermissions(pl);
-            }
-        }
-        catch(SQLException e)
+        // Reset everyone's permissions.
+        for(Player pl : Bukkit.getOnlinePlayers())
         {
-            e.printStackTrace();
+            PlayerAPI.resetPermissions(pl);
         }
 
         return true;
