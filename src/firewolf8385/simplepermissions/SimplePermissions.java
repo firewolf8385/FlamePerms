@@ -39,6 +39,9 @@ public class SimplePermissions extends JavaPlugin
         // Enable bStats
         MetricsLite metrics = new MetricsLite(this, 6582);
 
+        // Checks for any new updates.
+        //UpdateChecker update = new UpdateChecker(this.getDescription().getVersion());
+
         // MySQL connect to database.
         MySQL.openConnection();
 
