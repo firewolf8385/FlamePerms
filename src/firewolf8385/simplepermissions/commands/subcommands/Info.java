@@ -23,7 +23,7 @@ public class Info implements CommandExecutor
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
         ChatUtils.chat(sender, dgreen + "&l]" + gray + "&m---------------------------------------------------" + dgreen + "&l[");
-        ChatUtils.centeredChat((Player) sender, dgreen + "&lSimplePermissions");
+        ChatUtils.centeredChat(sender, dgreen + "&lSimplePermissions");
         ChatUtils.chat(sender, "  " + gray + "» " + lgreen + "Version " + gray + "- " + white + pl.getDescription().getVersion());
         ChatUtils.chat(sender, "  " + gray + "» " + lgreen + "Author " + gray + "- " + white + pl.getDescription().getAuthors().get(0));
         ChatUtils.chat(sender, dgreen + "&l]" + gray + "&m---------------------------------------------------" + dgreen + "&l[");
