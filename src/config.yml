@@ -81,7 +81,7 @@ Messages:
   groupDoesNotExist: "&2&lError &8- &cGroup &f%group% &cdoes not exist."
   setGroup: "&2&lPermissions &8- &aSet &f%target%&a's group to &f%group%&a."
   setFamily: "&2&lPermissions &8- &aSet &f%group&&a's family to &f%family%&a."
-  setOrder: "&2&lPermissions &8- &aSet &f%group&&a's order to &f%order%&a."
+  setOrder: "&2&lPermissions &8- &aSet &f%group%&a's order to &f%order%&a."
 
   # Permission
   permissionAdded: "&2&lPermissions &8- &aAdded &f%permission% &ato &f%group%&a."
