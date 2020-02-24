@@ -306,7 +306,7 @@ public class GroupAPI
     {
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE sp_groups SET order=? WHERE name = ?");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE sp_groups SET orderNum=? WHERE name = ?");
             statement.setInt(1, order);
             statement.setString(2, group.toLowerCase());
             statement.executeUpdate();

@@ -42,6 +42,7 @@ public class SetOrder implements CommandExecutor
             return true;
         }
 
+        GroupAPI.setOrder(group, order);
         ChatUtils.chat(sender, settings.getConfig().getString("Messages.setOrder")
                 .replace("%group%", group)
                 .replace("%order%", order + ""));

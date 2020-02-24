@@ -34,7 +34,7 @@ public class MySQL
         {
             try
             {
-                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `" + database + "`.`sp_groups` (`name` VARCHAR(45) NULL,`family` VARCHAR(45) NULL DEFAULT 'none',`order` INT NULL DEFAULT 1);");
+                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `" + database + "`.`sp_groups` (`name` VARCHAR(45) NULL,`family` VARCHAR(45) NULL DEFAULT 'none',`orderNum` INT NULL DEFAULT 1);");
                 statement.executeUpdate();
             }
             catch(SQLException e)
