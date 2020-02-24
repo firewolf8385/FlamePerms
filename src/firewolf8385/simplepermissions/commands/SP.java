@@ -14,7 +14,7 @@ public class SP implements CommandExecutor
     private Help help;
     private Info info;
     private RemovePerm removePerm;
-    private Set set;
+    private SetGroup setGroup;
     private SetFamily setFamily;
     private SetOrder setOrder;
 
@@ -26,7 +26,7 @@ public class SP implements CommandExecutor
         this.help = new Help();
         this.info = new Info();
         this.removePerm = new RemovePerm();
-        this.set = new Set();
+        this.setGroup = new SetGroup();
         this.setFamily = new SetFamily();
         this.setOrder = new SetOrder();
     }
@@ -58,8 +58,8 @@ public class SP implements CommandExecutor
             case "help":
                 this.help.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
                 break;
-            case "set":
-                this.set.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
+            case "setgroup":
+                this.setGroup.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
                 break;
             case "setfamily":
                 this.setFamily.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));

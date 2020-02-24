@@ -29,9 +29,9 @@ public class Help implements CommandExecutor
         ChatUtils.chat(sender, "  " + gray + "» " + lgreen + "/simple addperm [group] [perm]" + gray + " - " + white + "Add a permission.");
         ChatUtils.chat(sender, "  " + gray + "» " + lgreen + "/simple creategroup [group]" + gray + " - " + white + "Create a group.");
         ChatUtils.chat(sender, "  " + gray + "» " + lgreen + "/simple deletegroup [group]" + gray + " - " + white + "Delete a group.");
-        ChatUtils.chat(sender, "  " + gray + "» " + lgreen + "/simple set [player] [group]" + gray + " - " + white + "Set a player's group.");
-        ChatUtils.chat(sender, "  " + gray + "» " + lgreen + "/simple setfamily [group] [family]" + gray + " - " + white + "Set a group's family.");
-        ChatUtils.chat(sender, "  " + gray + "» " + lgreen + "/simple setorder [group] [order]" + gray + " - " + white + "Set a group's order.");
+        ChatUtils.chat(sender, "  " + gray + "» " + lgreen + "/simple setfamily [group] [family]" + gray + " - " + white + "SetGroup a group's family.");
+        ChatUtils.chat(sender, "  " + gray + "» " + lgreen + "/simple setgroup [player] [group]" + gray + " - " + white + "SetGroup a player's group.");
+        ChatUtils.chat(sender, "  " + gray + "» " + lgreen + "/simple setorder [group] [order]" + gray + " - " + white + "SetGroup a group's order.");
         ChatUtils.chat(sender, dgreen + "&l]" + gray + "&m---------------------------------------------------" + dgreen + "&l[");
 
         return true;

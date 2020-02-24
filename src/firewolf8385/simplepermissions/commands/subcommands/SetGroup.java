@@ -15,7 +15,7 @@ import org.bukkit.entity.Player;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class Set implements CommandExecutor
+public class SetGroup implements CommandExecutor
 {
     private SettingsManager settings = SettingsManager.getInstance();
 
