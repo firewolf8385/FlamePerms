@@ -1,0 +1,14 @@
+main: firewolf8385.simplepermissions.SimplePermissions
+name: SimplePermissions
+version: 1.0
+description: Permission Plugin for 1.15.2
+
+author: firewolf8385
+
+api-version: 1.13
+
+commands:
+  simplepermissions:
+    usage: /<command>
+    description: Main plugin command
+    aliases: [sm, simple, permissions]
