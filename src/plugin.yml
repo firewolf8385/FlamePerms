@@ -11,4 +11,4 @@ commands:
   simplepermissions:
     usage: /<command>
     description: Main plugin command
-    aliases: [sm, simple, permissions]
+    aliases: [sm, simple, permissions, perms]
