@@ -24,6 +24,9 @@ public class MySQL
         return connection;
     }
 
+    /**
+     * Create the tables used by the plugin.
+     */
     public static void createTables()
     {
         // "sp_groups"
@@ -31,8 +34,7 @@ public class MySQL
         {
             try
             {
-                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `?`.`sp_groups` (`name` VARCHAR(45) NULL,`family` VARCHAR(45) NULL DEFAULT 'none',`order` INT NULL DEFAULT 1);");
-                statement.setString(1, database);
+                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `" + database + "`.`sp_groups` (`name` VARCHAR(45) NULL,`family` VARCHAR(45) NULL DEFAULT 'none',`order` INT NULL DEFAULT 1);");
                 statement.executeUpdate();
             }
             catch(SQLException e)
@@ -46,8 +48,7 @@ public class MySQL
         {
             try
             {
-                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `?`.`sp_group_permissions` (`name` VARCHAR(45) NULL,`permission` VARCHAR(45) NULL);");
-                statement.setString(1, database);
+                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `" + database + "`.`sp_group_permissions` (`name` VARCHAR(45) NULL,`permission` VARCHAR(45) NULL);");
                 statement.executeUpdate();
             }
             catch(SQLException e)
@@ -61,8 +62,7 @@ public class MySQL
         {
             try
             {
-                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `?`.`sp_users` (`uuid` VARCHAR(36) NULL, `group` VARCHAR(45) NULL);");
-                statement.setString(1, database);
+                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `" + database + "`.`sp_users` (`uuid` VARCHAR(36) NULL, `group` VARCHAR(45) NULL);");
                 statement.executeUpdate();
             }
             catch(SQLException e)
