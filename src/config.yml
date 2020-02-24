@@ -77,14 +77,12 @@ Messages:
   # Group
   groupAlreadyExists: "&2&lError &8- &cGroup &f%group% &calready exists."
   groupCreated: "&2&lPermissions &8- &aCreated group &f%group%&a."
+  groupDeleted: "&2&lPermissions &8- &aCreated group &f%group%&a."
   groupDoesNotExist: "&2&lError &8- &cGroup &f%group% &cdoes not exist."
-  errorCreatingGroup: "&2&lError &8- &cCould not create group &f%group%&c. Check console for errors."
-  setGroup: "&2&lError &8- &cSet &f%target%&c's group to &f%group%&c."
+  setGroup: "&2&lPermissions &8- &aSet &f%target%&a's group to &f%group%&a."
   setFamily: "&2&lPermissions &8- &aSet &f%group&&a's family to &f%family%&a."
   setOrder: "&2&lPermissions &8- &aSet &f%group&&a's order to &f%order%&a."
 
   # Permission
   permissionAdded: "&2&lPermissions &8- &aAdded &f%permission% &ato &f%group%&a."
-  errorAddingPermission: "&2&lError &8- &cError adding &f%permission% &cto &f%group%&c. Check console for errors."
   permissionRemoved: "&2&lPermissions &8- &aRemove &f%permission% &afrom &f%group%&a."
-  errorRemovingPermission: "&2&lError &8- &cError removing &f%permission% &cfrom &f%group%&c. Check console for errors."
