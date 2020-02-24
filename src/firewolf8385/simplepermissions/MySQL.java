@@ -120,6 +120,23 @@ public class MySQL
 
     }
 
+
+    /**
+     * Make sure the database is connected.
+     */
+    public static void ensureConnection()
+    {
+        try
+        {
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from sp_groups WHERE");
+            statement.executeQuery();
+        }
+        catch(SQLException e)
+        {
+            // Nothing.
+        }
+    }
+
     /**
      * Check if a table exists
      * @param table table

@@ -15,6 +15,8 @@ public class PlayerJoin implements Listener
     @EventHandler
     public void onJoin(PlayerJoinEvent e)
     {
+        MySQL.ensureConnection();
+
         if(!PlayerAPI.playerExists(e.getPlayer()))
         {
             try
