@@ -62,7 +62,17 @@ public class MySQL
         {
             try
             {
-                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `" + database + "`.`sp_users` (`uuid` VARCHAR(36) NULL, `group` VARCHAR(45) NULL);");
+                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `" + database + "`.`sp_users` (`uuid` VARCHAR(36) NULL, `groupName` VARCHAR(45) NULL DEFAULT 'default');");
+                statement.executeUpdate();
+            }
+            catch(SQLException e)
+            {
+                e.printStackTrace();
+            }
+
+            try
+            {
+                PreparedStatement statement = MySQL.getConnection().prepareStatement("INSERT INTO `sp_users` (name) VALUES 'default'");
                 statement.executeUpdate();
             }
             catch(SQLException e)

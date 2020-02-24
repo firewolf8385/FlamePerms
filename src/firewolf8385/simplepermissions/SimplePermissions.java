@@ -1,5 +1,7 @@
 package firewolf8385.simplepermissions;
 
+import firewolf8385.simplepermissions.commands.SP;
+import firewolf8385.simplepermissions.events.PlayerJoin;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -11,14 +13,14 @@ public class SimplePermissions extends JavaPlugin
      *    Date: February 23rd, 2020
      *    Code version: 1.0
      ***************************************************************************************/
-    private Plugin pl;
+    private static Plugin pl;
     private SettingsManager settings = SettingsManager.getInstance();
 
     /**
      * Get instance of the plugin.
      * @return Plugin
      */
-    public Plugin getPlugin()
+    public static Plugin getPlugin()
     {
         return pl;
     }
@@ -60,7 +62,7 @@ public class SimplePermissions extends JavaPlugin
      */
     private void registerCommands()
     {
-
+        getCommand("simplepermissions").setExecutor(new SP());
     }
 
     /**
@@ -68,7 +70,7 @@ public class SimplePermissions extends JavaPlugin
      */
     private void registerEvents()
     {
-
+        getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
     }
 
 }

@@ -10,7 +10,7 @@
 # Version 1.0
 
 # This is used when an update modifies the config. If checks this value and
-#warns you when the config file does not match the version needed. This number
+# warns you when the config file does not match the version needed. This number
 # may be changed when the correct additions to the config are made.
 configVersion: 1
 
@@ -34,14 +34,17 @@ MySQL:
 # under Messages.
 Theme:
 
-  # Default:
-  color1: ""
+  # Default: "&8"
+  color1: "&8"
 
-  # Default:
-  color2: ""
+  # Default: "&2"
+  color2: "&2"
 
-  # Defaukt:
-  color3: ""
+  # Default: "&a"
+  color3: "&a"
+
+  # Default: "&f"
+  color4: "&f"
 
 # -----------------------------------------
 #               Settings
@@ -56,8 +59,32 @@ Theme:
 #  - %group%
 #  - %permission%
 #  - %target%
+#  - %order%
 Messages:
-  noPermission: ""
-  groupAlreadyExists: ""
-  groupCreated: ""
-  groupDoesNotExist: ""
+  # Usage
+  addPermUsage: "&2&lUsage &8- &c/simple addperm [group] [perm]"
+  createGroupUsage: "&2&lUsage &8- &c/simple creategroup [group]"
+  deleteGroupUsage: "&2&lUsage &80 &c/simple deletegroup [group]"
+  removePermUsage: "&2&lUsage &8- &c/simple removeperm [group] [perm]"
+  setUsage: "&2&lUsage &8- &c/simple set [player] [group]"
+  setFamilyUsage: "&2&lUsage &8- &c/simple setfamily [rank] [family]"
+  setOrderUsage: "&2&lUsage &8- &c/simple setorder [rank] [order]"
+
+  # Access
+  noPermission: "&2&lError &8- &cYou do not have access to that command."
+  mustBePlayer: "&2&lError &8- &cYou must be a player to use that command."
+
+  # Group
+  groupAlreadyExists: "&2&lError &8- &cGroup &f%group% &calready exists."
+  groupCreated: "&2&lPermissions &8- &aCreated group &f%group%&a."
+  groupDoesNotExist: "&2&lError &8- &cGroup &f%group% &cdoes not exist."
+  errorCreatingGroup: "&2&lError &8- &cCould not create group &f%group%&c. Check console for errors."
+  setGroup: "&2&lError &8- &cSet &f%target%&c's group to &f%group%&c."
+  setFamily: "&2&lPermissions &8- &aSet &f%group&&a's family to &f%family%&a."
+  setOrder: "&2&lPermissions &8- &aSet &f%group&&a's order to &f%order%&a."
+
+  # Permission
+  permissionAdded: "&2&lPermissions &8- &aAdded &f%permission% &ato &f%group%&a."
+  errorAddingPermission: "&2&lError &8- &cError adding &f%permission% &cto &f%group%&c. Check console for errors."
+  permissionRemoved: "&2&lPermissions &8- &aRemove &f%permission% &afrom &f%group%&a."
+  errorRemovingPermission: "&2&lError &8- &cError removing &f%permission% &cfrom &f%group%&c. Check console for errors."
