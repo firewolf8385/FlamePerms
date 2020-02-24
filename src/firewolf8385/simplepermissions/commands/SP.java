@@ -68,7 +68,7 @@ public class SP implements CommandExecutor
                 this.setOrder.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
                 break;
             default:
-                this.info.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
+                this.help.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
                 break;
         }
 
