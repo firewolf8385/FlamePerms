@@ -11,6 +11,7 @@ public class SP implements CommandExecutor
 {
     private AddPerm addPerm;
     private CreateGroup createGroup;
+    private Help help;
     private Info info;
     private RemovePerm removePerm;
     private Set set;
@@ -22,6 +23,7 @@ public class SP implements CommandExecutor
     {
         this.addPerm = new AddPerm();
         this.createGroup = new CreateGroup();
+        this.help = new Help();
         this.info = new Info();
         this.removePerm = new RemovePerm();
         this.set = new Set();
@@ -52,6 +54,9 @@ public class SP implements CommandExecutor
                 break;
             case "creategroup":
                 this.createGroup.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
+                break;
+            case "help":
+                this.help.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
                 break;
             case "set":
                 this.set.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
