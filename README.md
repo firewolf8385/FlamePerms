@@ -1,11 +1,11 @@
-# SimplePermissions &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/firewolf8385/simplepermissions/blob/master/LICENSE)
+# FlamePerms &middot; [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/firewolf8385/flameperms/blob/master/LICENSE)
 > Simple permissions manager for Minecraft 1.15
 
-SimplePermission is a permissions plugin designed for Minecraft servers running the latest versions of Spigot and PaperSpigot. It's based around being lightweight and simple to use.
+FlamePerms is a permissions plugin designed for Minecraft servers running the latest versions of Spigot and PaperSpigot. It's based around being lightweight, simple to use, and compatible.
 
 ## Useful Links
   * Spigot Page: Coming Soon
-  * bStats: (https://bstats.org/plugin/bukkit/SimplePermissions/6582)
+  * bStats: (https://bstats.org/plugin/bukkit/FlamePerms/6593)
 ## Installing
 ### Requirements
   * Java 8 JDK or newer
@@ -13,10 +13,13 @@ SimplePermission is a permissions plugin designed for Minecraft servers running 
   * Server Software with Bukkit API.
   
 ## Configuration
-SimplePermissions is designed to be customizable. All cusotmization options can be found [`here`](https://github.com/firewolf8385/SimplePermissions/blob/master/src/config.yml).
+FlamePerms is designed to be customizable. All cusotmization options can be found [`here`](https://github.com/firewolf8385/FlamePerms/blob/master/src/config.yml).
 
 ## Wiki
 Coming Soon.
 
+## API
+FlamePerms allows developers to interract with the plugin using an API. More information coming soon.
+
 ## License
-SimplePermissions is licensed under the MIT license. See [`LICENSE.txt`](https://github.com/firewolf8385/simplepermissions/blob/master/LICENSE.txt) for more info.
+FlamePerms is licensed under the MIT license. See [`LICENSE.txt`](https://github.com/firewolf8385/flameperms/blob/master/LICENSE.txt) for more info.
