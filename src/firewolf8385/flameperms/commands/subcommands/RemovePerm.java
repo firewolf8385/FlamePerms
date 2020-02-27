@@ -1,16 +1,17 @@
-package firewolf8385.simplepermissions.commands.subcommands;
+package firewolf8385.flameperms.commands.subcommands;
 
-import firewolf8385.simplepermissions.SettingsManager;
-import firewolf8385.simplepermissions.api.GroupAPI;
-import firewolf8385.simplepermissions.api.PlayerAPI;
-import firewolf8385.simplepermissions.utils.ChatUtils;
+import firewolf8385.flameperms.SettingsManager;
+import firewolf8385.flameperms.api.GroupAPI;
+import firewolf8385.flameperms.api.PlayerAPI;
+import firewolf8385.flameperms.utils.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class SetOrder implements CommandExecutor
+
+public class RemovePerm implements CommandExecutor
 {
     private SettingsManager settings = SettingsManager.getInstance();
 
@@ -18,7 +19,7 @@ public class SetOrder implements CommandExecutor
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
         // Exit if no permission.
-        if(!sender.hasPermission("sp.admin"))
+        if(!sender.hasPermission("fp.admin"))
         {
             ChatUtils.chat(sender, settings.getConfig().getString("Messages.noPermission"));
             return true;
@@ -27,12 +28,12 @@ public class SetOrder implements CommandExecutor
         // Check if not used correctly.
         if(args.length < 2)
         {
-            ChatUtils.chat(sender, settings.getConfig().getString("Messages.setOrderUsage"));
+            ChatUtils.chat(sender, settings.getConfig().getString("Messages.removePermUsage"));
             return true;
         }
 
         String group = args[0];
-        int order = Integer.parseInt(args[1]);
+        String permission = args[1];
 
         // Check if group exists.
         if(!GroupAPI.groupExists(group))
@@ -42,10 +43,10 @@ public class SetOrder implements CommandExecutor
             return true;
         }
 
-        GroupAPI.setOrder(group, order);
-        ChatUtils.chat(sender, settings.getConfig().getString("Messages.setOrder")
+        GroupAPI.removePermission(group, permission);
+        ChatUtils.chat(sender, settings.getConfig().getString("Messages.permissionRemoved")
                 .replace("%group%", group)
-                .replace("%order%", order + ""));
+                .replace("%permission%", permission));
 
         // Reset everyone's permissions.
         for(Player pl : Bukkit.getOnlinePlayers())

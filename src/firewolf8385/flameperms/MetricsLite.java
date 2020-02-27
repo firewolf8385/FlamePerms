@@ -1,4 +1,4 @@
-package firewolf8385.simplepermissions;
+package firewolf8385.flameperms;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

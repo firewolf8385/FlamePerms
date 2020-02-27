@@ -1,4 +1,4 @@
-package firewolf8385.simplepermissions;
+package firewolf8385.flameperms;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;

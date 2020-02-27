@@ -1,9 +1,9 @@
-package firewolf8385.simplepermissions.commands.subcommands;
+package firewolf8385.flameperms.commands.subcommands;
 
-import firewolf8385.simplepermissions.SettingsManager;
-import firewolf8385.simplepermissions.api.GroupAPI;
-import firewolf8385.simplepermissions.api.PlayerAPI;
-import firewolf8385.simplepermissions.utils.ChatUtils;
+import firewolf8385.flameperms.SettingsManager;
+import firewolf8385.flameperms.api.GroupAPI;
+import firewolf8385.flameperms.api.PlayerAPI;
+import firewolf8385.flameperms.utils.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,7 +18,7 @@ public class DeleteGroup implements CommandExecutor
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
         // Exit if no permission.
-        if(!sender.hasPermission("sp.admin"))
+        if(!sender.hasPermission("fp.admin"))
         {
             ChatUtils.chat(sender, settings.getConfig().getString("Messages.noPermission"));
             return true;

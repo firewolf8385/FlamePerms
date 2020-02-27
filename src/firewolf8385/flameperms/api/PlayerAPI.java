@@ -1,7 +1,7 @@
-package firewolf8385.simplepermissions.api;
+package firewolf8385.flameperms.api;
 
-import firewolf8385.simplepermissions.MySQL;
-import firewolf8385.simplepermissions.SimplePermissions;
+import firewolf8385.flameperms.MySQL;
+import firewolf8385.flameperms.FlamePerms;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 
@@ -25,7 +25,7 @@ public class PlayerAPI
      */
     public static void assignPermissions(Player p)
     {
-        PermissionAttachment attachment = p.addAttachment(SimplePermissions.getPlugin());
+        PermissionAttachment attachment = p.addAttachment(FlamePerms.getPlugin());
         perms.put(p.getUniqueId(), attachment);
         PermissionAttachment pperms = perms.get(p.getUniqueId());
 
@@ -47,7 +47,7 @@ public class PlayerAPI
 
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from sp_users WHERE uuid = ?");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from fp_users WHERE uuid = ?");
             statement.setString(1, p.getUniqueId().toString());
             ResultSet results = statement.executeQuery();
             results.next();
@@ -80,7 +80,7 @@ public class PlayerAPI
     {
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from sp_users WHERE uuid = ?");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from fp_users WHERE uuid = ?");
             statement.setString(1, p.getUniqueId().toString());
             ResultSet results = statement.executeQuery();
 

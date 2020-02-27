@@ -1,11 +1,9 @@
-#   _____ _                 _      _____                    _         _
-#  / ____(_)               | |    |  __ \                  (_)       (_)
-# | (___  _ _ __ ___  _ __ | | ___| |__) |__ _ __ _ __ ___  _ ___ ___ _  ___  _ __  ___
-#  \___ \| | '_ ` _ \| '_ \| |/ _ \  ___/ _ \ '__| '_ ` _ \| / __/ __| |/ _ \| '_ \/ __|
-#  ____) | | | | | | | |_) | |  __/ |  |  __/ |  | | | | | | \__ \__ \ | (_) | | | \__ \
-# |_____/|_|_| |_| |_| .__/|_|\___|_|   \___|_|  |_| |_| |_|_|___/___/_|\___/|_| |_|___/
-#                    | |
-#                    |_|
+#  ______ _                      _____
+# |  ____| |                    |  __ \
+# | |__  | | __ _ _ __ ___   ___| |__) |__ _ __ _ __ ___  ___
+# |  __| | |/ _` | '_ ` _ \ / _ \  ___/ _ \ '__| '_ ` _ \/ __|
+# | |    | | (_| | | | | | |  __/ |  |  __/ |  | | | | | \__ \
+# |_|    |_|\__,_|_| |_| |_|\___|_|   \___|_|  |_| |_| |_|___/
 #
 # Version 1.0
 
@@ -37,11 +35,11 @@ Theme:
   # Default: "&8"
   color1: "&8"
 
-  # Default: "&2"
-  color2: "&2"
+  # Default: "&6"
+  color2: "&6"
 
-  # Default: "&a"
-  color3: "&a"
+  # Default: "&e"
+  color3: "&e"
 
   # Default: "&f"
   color4: "&f"
@@ -62,27 +60,27 @@ Theme:
 #  - %order%
 Messages:
   # Usage
-  addPermUsage: "&2&lUsage &8- &c/simple addperm [group] [perm]"
-  createGroupUsage: "&2&lUsage &8- &c/simple creategroup [group]"
-  deleteGroupUsage: "&2&lUsage &80 &c/simple deletegroup [group]"
-  removePermUsage: "&2&lUsage &8- &c/simple removeperm [group] [perm]"
-  setUsage: "&2&lUsage &8- &c/simple set [player] [group]"
+  addPermUsage: "&6&lUsage &8- &c/simple addperm [group] [perm]"
+  createGroupUsage: "&6&lUsage &8- &c/simple creategroup [group]"
+  deleteGroupUsage: "&6&lUsage &80 &c/simple deletegroup [group]"
+  removePermUsage: "&6&lUsage &8- &c/simple removeperm [group] [perm]"
+  setUsage: "&6&lUsage &8- &c/simple set [player] [group]"
   setFamilyUsage: "&2&lUsage &8- &c/simple setfamily [rank] [family]"
   setOrderUsage: "&2&lUsage &8- &c/simple setorder [rank] [order]"
 
   # Access
-  noPermission: "&2&lError &8- &cYou do not have access to that command."
-  mustBePlayer: "&2&lError &8- &cYou must be a player to use that command."
+  noPermission: "&6&lError &8- &cYou do not have access to that command."
+  mustBePlayer: "&6&lError &8- &cYou must be a player to use that command."
 
   # Group
-  groupAlreadyExists: "&2&lError &8- &cGroup &f%group% &calready exists."
-  groupCreated: "&2&lPermissions &8- &aCreated group &f%group%&a."
-  groupDeleted: "&2&lPermissions &8- &aCreated group &f%group%&a."
-  groupDoesNotExist: "&2&lError &8- &cGroup &f%group% &cdoes not exist."
-  setGroup: "&2&lPermissions &8- &aSet &f%target%&a's group to &f%group%&a."
-  setFamily: "&2&lPermissions &8- &aSet &f%group&&a's family to &f%family%&a."
-  setOrder: "&2&lPermissions &8- &aSet &f%group%&a's order to &f%order%&a."
+  groupAlreadyExists: "&6&lError &8- &cGroup &f%group% &calready exists."
+  groupCreated: "&6&lPermissions &8- &aCreated group &f%group%&a."
+  groupDeleted: "&6&lPermissions &8- &aCreated group &f%group%&a."
+  groupDoesNotExist: "&6&lError &8- &cGroup &f%group% &cdoes not exist."
+  setGroup: "&6&lPermissions &8- &aSet &f%target%&a's group to &f%group%&a."
+  setFamily: "&6&lPermissions &8- &aSet &f%group&&a's family to &f%family%&a."
+  setOrder: "&6&lPermissions &8- &aSet &f%group%&a's order to &f%order%&a."
 
   # Permission
-  permissionAdded: "&2&lPermissions &8- &aAdded &f%permission% &ato &f%group%&a."
-  permissionRemoved: "&2&lPermissions &8- &aRemove &f%permission% &afrom &f%group%&a."
+  permissionAdded: "&6&lPermissions &8- &aAdded &f%permission% &ato &f%group%&a."
+  permissionRemoved: "&6&lPermissions &8- &aRemove &f%permission% &afrom &f%group%&a."

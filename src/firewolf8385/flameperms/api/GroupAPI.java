@@ -1,6 +1,6 @@
-package firewolf8385.simplepermissions.api;
+package firewolf8385.flameperms.api;
 
-import firewolf8385.simplepermissions.MySQL;
+import firewolf8385.flameperms.MySQL;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,7 +25,7 @@ public class GroupAPI
     {
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("INSERT INTO sp_group_permissions (name, permission) VALUES (?,?)");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("INSERT INTO fp_group_permissions (name, permission) VALUES (?,?)");
             statement.setString(1, group.toLowerCase());
             statement.setString(2, permission);
             statement.executeUpdate();
@@ -44,7 +44,7 @@ public class GroupAPI
     {
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("INSERT INTO sp_groups (name) VALUES (?)");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("INSERT INTO fp_groups (name) VALUES (?)");
             statement.setString(1, group.toLowerCase());
 
             statement.executeUpdate();
@@ -64,7 +64,7 @@ public class GroupAPI
         // Deletes the group from sp_groups.
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("DELETE FROM sp_groups WHERE name = ?)");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("DELETE FROM fp_groups WHERE name = ?)");
             statement.setString(1, group.toLowerCase());
             statement.executeUpdate();
         }
@@ -76,7 +76,7 @@ public class GroupAPI
         // Deletes the group from sp_group_permissions.
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("DELETE FROM sp_group_permissions WHERE name = ?)");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("DELETE FROM fp_group_permissions WHERE name = ?)");
             statement.setString(1, group.toLowerCase());
             statement.executeUpdate();
         }
@@ -88,7 +88,7 @@ public class GroupAPI
         // Deletes the group from sp_users.
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE sp_users SET groupName=? WHERE groupName = ?");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE fp_users SET groupName=? WHERE groupName = ?");
             statement.setString(1, group.toLowerCase());
             statement.setString(2, "default");
             statement.executeUpdate();
@@ -117,7 +117,7 @@ public class GroupAPI
         {
             try
             {
-                PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from sp_group_permissions WHERE name = ?");
+                PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from fp_group_permissions WHERE name = ?");
                 statement.setString(1, g);
                 ResultSet results = statement.executeQuery();
 
@@ -145,7 +145,7 @@ public class GroupAPI
     {
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from sp_groups WHERE name = ?");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from fp_groups WHERE name = ?");
             statement.setString(1, group.toLowerCase());
             ResultSet results = statement.executeQuery();
             results.next();
@@ -183,7 +183,7 @@ public class GroupAPI
 
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from sp_groups WHERE family = ?");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from fp_groups WHERE family = ?");
             statement.setString(1, family);
             ResultSet results = statement.executeQuery();
 
@@ -219,7 +219,7 @@ public class GroupAPI
     {
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from sp_groups WHERE name = ?");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from fp_groups WHERE name = ?");
             statement.setString(1, group.toLowerCase());
             ResultSet results = statement.executeQuery();
             results.next();
@@ -243,7 +243,7 @@ public class GroupAPI
     {
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from sp_groups WHERE name = ?");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from fp_groups WHERE name = ?");
             statement.setString(1, group.toLowerCase());
             ResultSet results = statement.executeQuery();
 
@@ -266,7 +266,7 @@ public class GroupAPI
     {
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("DELETE FROM sp_group_permissions WHERE name = ? AND permission = ?");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("DELETE FROM fp_group_permissions WHERE name = ? AND permission = ?");
             statement.setString(1, group.toLowerCase());
             statement.setString(2, permission);
             statement.executeUpdate();
@@ -286,7 +286,7 @@ public class GroupAPI
     {
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE sp_groups SET family=? WHERE name = ?");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE fp_groups SET family=? WHERE name = ?");
             statement.setString(1, family);
             statement.setString(2, group.toLowerCase());
             statement.executeUpdate();
@@ -306,7 +306,7 @@ public class GroupAPI
     {
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE sp_groups SET orderNum=? WHERE name = ?");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE fp_groups SET orderNum=? WHERE name = ?");
             statement.setInt(1, order);
             statement.setString(2, group.toLowerCase());
             statement.executeUpdate();
@@ -326,7 +326,7 @@ public class GroupAPI
     {
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE sp_users SET groupName=? WHERE uuid = ?");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("UPDATE fp_users SET groupName=? WHERE uuid = ?");
             statement.setString(1, group.toLowerCase());
             statement.setString(2, player.toString());
             statement.executeUpdate();

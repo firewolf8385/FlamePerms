@@ -1,6 +1,4 @@
-package firewolf8385.simplepermissions;
-
-import org.bukkit.Bukkit;
+package firewolf8385.flameperms;
 
 import java.sql.*;
 
@@ -30,11 +28,11 @@ public class MySQL
     public static void createTables()
     {
         // "sp_groups"
-        if(!tableExists("sp_groups"))
+        if(!tableExists("fp_groups"))
         {
             try
             {
-                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `" + database + "`.`sp_groups` (`name` VARCHAR(45) NULL,`family` VARCHAR(45) NULL DEFAULT 'none',`orderNum` INT NULL DEFAULT 1);");
+                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `" + database + "`.`fp_groups` (`name` VARCHAR(45) NULL,`family` VARCHAR(45) NULL DEFAULT 'none',`orderNum` INT NULL DEFAULT 1);");
                 statement.executeUpdate();
             }
             catch(SQLException e)
@@ -44,11 +42,11 @@ public class MySQL
         }
 
         // "sp_group_permissions"
-        if(!tableExists("sp_group_permissions"))
+        if(!tableExists("fp_group_permissions"))
         {
             try
             {
-                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `" + database + "`.`sp_group_permissions` (`name` VARCHAR(45) NULL,`permission` VARCHAR(45) NULL);");
+                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `" + database + "`.`fp_group_permissions` (`name` VARCHAR(45) NULL,`permission` VARCHAR(45) NULL);");
                 statement.executeUpdate();
             }
             catch(SQLException e)
@@ -58,11 +56,11 @@ public class MySQL
         }
 
         // "sp_users"
-        if(!tableExists("sb_users"))
+        if(!tableExists("fb_users"))
         {
             try
             {
-                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `" + database + "`.`sp_users` (`uuid` VARCHAR(36) NULL, `groupName` VARCHAR(45) NULL DEFAULT 'default');");
+                PreparedStatement statement = MySQL.getConnection().prepareStatement("CREATE TABLE `" + database + "`.`fp_users` (`uuid` VARCHAR(36) NULL, `groupName` VARCHAR(45) NULL DEFAULT 'default');");
                 statement.executeUpdate();
             }
             catch(SQLException e)
@@ -72,7 +70,7 @@ public class MySQL
 
             try
             {
-                PreparedStatement statement = MySQL.getConnection().prepareStatement("INSERT INTO `sp_users` (name) VALUES 'default'");
+                PreparedStatement statement = MySQL.getConnection().prepareStatement("INSERT INTO `fp_users` (name) VALUES 'default'");
                 statement.executeUpdate();
             }
             catch(SQLException e)
@@ -95,7 +93,7 @@ public class MySQL
                 return;
             }
 
-            synchronized(SimplePermissions.class)
+            synchronized(FlamePerms.class)
             {
                 if (connection != null && !connection.isClosed())
                 {
@@ -128,7 +126,7 @@ public class MySQL
     {
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT * from sp_groups WHERE");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("SELECT 1 from fp_groups WHERE");
             statement.executeQuery();
         }
         catch(SQLException e)

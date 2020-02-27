@@ -1,15 +1,15 @@
-package firewolf8385.simplepermissions;
+package firewolf8385.flameperms;
 
-import firewolf8385.simplepermissions.commands.SP;
-import firewolf8385.simplepermissions.events.PlayerJoin;
-import firewolf8385.simplepermissions.events.PlayerQuit;
+import firewolf8385.flameperms.commands.SP;
+import firewolf8385.flameperms.events.PlayerJoin;
+import firewolf8385.flameperms.events.PlayerQuit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class SimplePermissions extends JavaPlugin
+public class FlamePerms extends JavaPlugin
 {
     /***************************************************************************************
-     *    Title: SimplePermissions
+     *    Title: FlamePerms
      *    Author: firewolf8385
      *    Date: February 23rd, 2020
      *    Code version: 1.0
@@ -37,7 +37,7 @@ public class SimplePermissions extends JavaPlugin
         settings.setup(this);
 
         // Enable bStats
-        MetricsLite metrics = new MetricsLite(this, 6582);
+        MetricsLite metrics = new MetricsLite(this, 6593);
 
         // Checks for any new updates.
         //UpdateChecker update = new UpdateChecker(this.getDescription().getVersion());
@@ -66,7 +66,7 @@ public class SimplePermissions extends JavaPlugin
      */
     private void registerCommands()
     {
-        getCommand("simplepermissions").setExecutor(new SP());
+        getCommand("flameperms").setExecutor(new SP());
     }
 
     /**

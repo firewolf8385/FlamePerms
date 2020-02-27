@@ -1,6 +1,6 @@
-package firewolf8385.simplepermissions.commands;
+package firewolf8385.flameperms.commands;
 
-import firewolf8385.simplepermissions.commands.subcommands.*;
+import firewolf8385.flameperms.commands.subcommands.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

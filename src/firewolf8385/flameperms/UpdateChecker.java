@@ -1,4 +1,4 @@
-package firewolf8385.simplepermissions;
+package firewolf8385.flameperms;
 
 import org.bukkit.Bukkit;
 
@@ -75,7 +75,7 @@ public class UpdateChecker
                 latestVersion = reader.readLine();
                 if (!latestVersion.equals(currentVersion)) {
                     update = true;
-                    Bukkit.getLogger().info("[" + SimplePermissions.getPlugin().getName() + "] There is an update available.\nYour Version: " + currentVersion + "\nLatest Version: " + latestVersion);
+                    Bukkit.getLogger().info("[" + FlamePerms.getPlugin().getName() + "] There is an update available.\nYour Version: " + currentVersion + "\nLatest Version: " + latestVersion);
                 }
                 else
                 {

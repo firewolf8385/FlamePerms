@@ -1,14 +1,14 @@
-main: firewolf8385.simplepermissions.SimplePermissions
-name: SimplePermissions
+main: firewolf8385.flameperms.FlamePerms
+name: FlamePerms
 version: 1.0
 description: Permission Plugin for 1.15.2
 
 author: firewolf8385
 
-api-version: 1.13
+api-version: 1.15
 
 commands:
-  simplepermissions:
+  flameperms:
     usage: /<command>
     description: Main plugin command
-    aliases: [sm, simple, permissions, perms]
+    aliases: [fp, flame, permissions, perms]
