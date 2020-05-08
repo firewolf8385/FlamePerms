@@ -21,13 +21,14 @@ public class GroupAPI
      * @param group Group to add permission to.
      * @param permission The permission to be added.
      */
-    public static void addPermission(String group, String permission)
+    public static void addPermission(String group, String permission, String server)
     {
         try
         {
-            PreparedStatement statement = MySQL.getConnection().prepareStatement("INSERT INTO fp_group_permissions (name, permission) VALUES (?,?)");
+            PreparedStatement statement = MySQL.getConnection().prepareStatement("INSERT INTO fp_group_permissions (name, permission, server) VALUES (?,?,?)");
             statement.setString(1, group.toLowerCase());
             statement.setString(2, permission);
+            statement.setString(3, server);
             statement.executeUpdate();
         }
         catch(SQLException e)
