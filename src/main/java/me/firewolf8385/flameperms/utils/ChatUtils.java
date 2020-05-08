@@ -42,7 +42,8 @@ public class ChatUtils
                 .replace("color1", settings.getConfig().getString("color1"))
                 .replace("color2", settings.getConfig().getString("color2"))
                 .replace("color3", settings.getConfig().getString("color3"))
-                .replace("color4", settings.getConfig().getString("color4"));
+                .replace("color4", settings.getConfig().getString("color4"))
+                .replace("color5", settings.getConfig().getString("color5"));
 
         return ChatColor.translateAlternateColorCodes('&', str);
     }
