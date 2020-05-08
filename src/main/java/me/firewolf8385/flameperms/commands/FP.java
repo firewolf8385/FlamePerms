@@ -10,11 +10,10 @@ import java.util.Arrays;
 
 public class FP implements CommandExecutor
 {
-    private AddPerm addPerm;
     private CreateGroup createGroup;
+    private Group group;
     private Help help;
     private Info info;
-    private RemovePerm removePerm;
     private SetGroup setGroup;
     private SetFamily setFamily;
     private SetOrder setOrder;
@@ -22,11 +21,10 @@ public class FP implements CommandExecutor
 
     public FP()
     {
-        this.addPerm = new AddPerm();
         this.createGroup = new CreateGroup();
+        this.group = new Group();
         this.help = new Help();
         this.info = new Info();
-        this.removePerm = new RemovePerm();
         this.setGroup = new SetGroup();
         this.setFamily = new SetFamily();
         this.setOrder = new SetOrder();
@@ -47,17 +45,11 @@ public class FP implements CommandExecutor
             case "info":
                 this.info.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
                 break;
-            case "addperm":
-                this.addPerm.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
-                break;
-            case "removeperm":
-                this.removePerm.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
-                break;
             case "creategroup":
                 this.createGroup.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
                 break;
-            case "help":
-                this.help.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
+            case "group":
+                this.group.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
                 break;
             case "setgroup":
                 this.setGroup.onCommand(sender, cmd, label, Arrays.copyOfRange(args, 1, args.length));
