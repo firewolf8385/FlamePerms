@@ -1,16 +1,16 @@
-package firewolf8385.flameperms.commands.subcommands;
+package me.firewolf8385.flameperms.commands.subcommands;
 
-import firewolf8385.flameperms.SettingsManager;
-import firewolf8385.flameperms.api.GroupAPI;
-import firewolf8385.flameperms.api.PlayerAPI;
-import firewolf8385.flameperms.utils.ChatUtils;
+import me.firewolf8385.flameperms.SettingsManager;
+import me.firewolf8385.flameperms.api.GroupAPI;
+import me.firewolf8385.flameperms.api.PlayerAPI;
+import me.firewolf8385.flameperms.utils.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class DeleteGroup implements CommandExecutor
+public class SetGroup implements CommandExecutor
 {
     private SettingsManager settings = SettingsManager.getInstance();
 
@@ -25,15 +25,16 @@ public class DeleteGroup implements CommandExecutor
         }
 
         // Check if not used correctly.
-        if(args.length == 0)
+        if(args.length < 2)
         {
-            ChatUtils.chat(sender, settings.getConfig().getString("Messages.deleteGroupUsage"));
+            ChatUtils.chat(sender, settings.getConfig().getString("Messages.setUsage"));
             return true;
         }
 
-        String group = args[0].toLowerCase();
+        Player t = Bukkit.getPlayer(args[0]);
+        String group = args[1];
 
-        // Check if group already exists.
+        // Check if group exists.
         if(!GroupAPI.groupExists(group))
         {
             ChatUtils.chat(sender, settings.getConfig().getString("Messages.groupDoesNotExist")
@@ -41,14 +42,12 @@ public class DeleteGroup implements CommandExecutor
             return true;
         }
 
-        GroupAPI.deleteGroup(group);
-        ChatUtils.chat(sender, settings.getConfig().getString("Messages.groupDeleted").replace("%group%", args[0]));
+        GroupAPI.setPlayerGroup(t.getUniqueId(), group);
+        ChatUtils.chat(sender, settings.getConfig().getString("Messages.setGroup")
+                .replace("%target%", t.getName())
+                .replace("%group%", group));
 
-        // Reset everyone's permissions.
-        for(Player pl : Bukkit.getOnlinePlayers())
-        {
-            PlayerAPI.resetPermissions(pl);
-        }
+        PlayerAPI.resetPermissions(t);
 
         return true;
     }

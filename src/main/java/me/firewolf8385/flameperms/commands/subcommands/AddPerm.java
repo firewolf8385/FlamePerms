@@ -1,9 +1,9 @@
-package firewolf8385.flameperms.commands.subcommands;
+package me.firewolf8385.flameperms.commands.subcommands;
 
-import firewolf8385.flameperms.SettingsManager;
-import firewolf8385.flameperms.api.GroupAPI;
-import firewolf8385.flameperms.api.PlayerAPI;
-import firewolf8385.flameperms.utils.ChatUtils;
+import me.firewolf8385.flameperms.SettingsManager;
+import me.firewolf8385.flameperms.api.GroupAPI;
+import me.firewolf8385.flameperms.api.PlayerAPI;
+import me.firewolf8385.flameperms.utils.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

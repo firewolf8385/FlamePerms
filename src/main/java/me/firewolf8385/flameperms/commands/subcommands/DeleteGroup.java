@@ -1,16 +1,16 @@
-package firewolf8385.flameperms.commands.subcommands;
+package me.firewolf8385.flameperms.commands.subcommands;
 
-import firewolf8385.flameperms.SettingsManager;
-import firewolf8385.flameperms.api.GroupAPI;
-import firewolf8385.flameperms.api.PlayerAPI;
-import firewolf8385.flameperms.utils.ChatUtils;
+import me.firewolf8385.flameperms.SettingsManager;
+import me.firewolf8385.flameperms.api.GroupAPI;
+import me.firewolf8385.flameperms.api.PlayerAPI;
+import me.firewolf8385.flameperms.utils.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class SetOrder implements CommandExecutor
+public class DeleteGroup implements CommandExecutor
 {
     private SettingsManager settings = SettingsManager.getInstance();
 
@@ -25,16 +25,15 @@ public class SetOrder implements CommandExecutor
         }
 
         // Check if not used correctly.
-        if(args.length < 2)
+        if(args.length == 0)
         {
-            ChatUtils.chat(sender, settings.getConfig().getString("Messages.setOrderUsage"));
+            ChatUtils.chat(sender, settings.getConfig().getString("Messages.deleteGroupUsage"));
             return true;
         }
 
-        String group = args[0];
-        int order = Integer.parseInt(args[1]);
+        String group = args[0].toLowerCase();
 
-        // Check if group exists.
+        // Check if group already exists.
         if(!GroupAPI.groupExists(group))
         {
             ChatUtils.chat(sender, settings.getConfig().getString("Messages.groupDoesNotExist")
@@ -42,10 +41,8 @@ public class SetOrder implements CommandExecutor
             return true;
         }
 
-        GroupAPI.setOrder(group, order);
-        ChatUtils.chat(sender, settings.getConfig().getString("Messages.setOrder")
-                .replace("%group%", group)
-                .replace("%order%", order + ""));
+        GroupAPI.deleteGroup(group);
+        ChatUtils.chat(sender, settings.getConfig().getString("Messages.groupDeleted").replace("%group%", args[0]));
 
         // Reset everyone's permissions.
         for(Player pl : Bukkit.getOnlinePlayers())
@@ -55,4 +52,5 @@ public class SetOrder implements CommandExecutor
 
         return true;
     }
+
 }

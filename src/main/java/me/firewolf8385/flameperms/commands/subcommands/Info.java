@@ -1,12 +1,13 @@
-package firewolf8385.flameperms.commands.subcommands;
+package me.firewolf8385.flameperms.commands.subcommands;
 
-import firewolf8385.flameperms.SettingsManager;
-import firewolf8385.flameperms.FlamePerms;
+import me.firewolf8385.flameperms.SettingsManager;
+import me.firewolf8385.flameperms.FlamePerms;
+import me.firewolf8385.flameperms.utils.ChatUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.Plugin;
-import firewolf8385.flameperms.utils.*;
+import me.firewolf8385.flameperms.utils.*;
 
 public class Info implements CommandExecutor
 {

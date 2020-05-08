@@ -1,8 +1,8 @@
-package firewolf8385.flameperms;
+package me.firewolf8385.flameperms;
 
-import firewolf8385.flameperms.commands.SP;
-import firewolf8385.flameperms.events.PlayerJoin;
-import firewolf8385.flameperms.events.PlayerQuit;
+import me.firewolf8385.flameperms.commands.SP;
+import me.firewolf8385.flameperms.events.PlayerJoin;
+import me.firewolf8385.flameperms.events.PlayerQuit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 

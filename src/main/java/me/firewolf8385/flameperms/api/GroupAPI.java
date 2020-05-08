@@ -1,6 +1,6 @@
-package firewolf8385.flameperms.api;
+package me.firewolf8385.flameperms.api;
 
-import firewolf8385.flameperms.MySQL;
+import me.firewolf8385.flameperms.MySQL;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

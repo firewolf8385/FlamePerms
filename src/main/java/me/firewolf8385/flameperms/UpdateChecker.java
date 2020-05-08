@@ -1,4 +1,4 @@
-package firewolf8385.flameperms;
+package me.firewolf8385.flameperms;
 
 import org.bukkit.Bukkit;
 

@@ -1,4 +1,4 @@
-package firewolf8385.flameperms.enums;
+package me.firewolf8385.flameperms.enums;
 
 public enum DefaultFontInfo
 {

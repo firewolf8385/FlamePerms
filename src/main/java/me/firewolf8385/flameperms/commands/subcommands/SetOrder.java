@@ -1,16 +1,16 @@
-package firewolf8385.flameperms.commands.subcommands;
+package me.firewolf8385.flameperms.commands.subcommands;
 
-import firewolf8385.flameperms.SettingsManager;
-import firewolf8385.flameperms.api.GroupAPI;
-import firewolf8385.flameperms.api.PlayerAPI;
-import firewolf8385.flameperms.utils.ChatUtils;
+import me.firewolf8385.flameperms.SettingsManager;
+import me.firewolf8385.flameperms.api.GroupAPI;
+import me.firewolf8385.flameperms.api.PlayerAPI;
+import me.firewolf8385.flameperms.utils.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class SetGroup implements CommandExecutor
+public class SetOrder implements CommandExecutor
 {
     private SettingsManager settings = SettingsManager.getInstance();
 
@@ -27,12 +27,12 @@ public class SetGroup implements CommandExecutor
         // Check if not used correctly.
         if(args.length < 2)
         {
-            ChatUtils.chat(sender, settings.getConfig().getString("Messages.setUsage"));
+            ChatUtils.chat(sender, settings.getConfig().getString("Messages.setOrderUsage"));
             return true;
         }
 
-        Player t = Bukkit.getPlayer(args[0]);
-        String group = args[1];
+        String group = args[0];
+        int order = Integer.parseInt(args[1]);
 
         // Check if group exists.
         if(!GroupAPI.groupExists(group))
@@ -42,14 +42,17 @@ public class SetGroup implements CommandExecutor
             return true;
         }
 
-        GroupAPI.setPlayerGroup(t.getUniqueId(), group);
-        ChatUtils.chat(sender, settings.getConfig().getString("Messages.setGroup")
-                .replace("%target%", t.getName())
-                .replace("%group%", group));
+        GroupAPI.setOrder(group, order);
+        ChatUtils.chat(sender, settings.getConfig().getString("Messages.setOrder")
+                .replace("%group%", group)
+                .replace("%order%", order + ""));
 
-        PlayerAPI.resetPermissions(t);
+        // Reset everyone's permissions.
+        for(Player pl : Bukkit.getOnlinePlayers())
+        {
+            PlayerAPI.resetPermissions(pl);
+        }
 
         return true;
     }
-
 }

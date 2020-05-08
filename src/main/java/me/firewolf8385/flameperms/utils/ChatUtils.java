@@ -1,6 +1,6 @@
-package firewolf8385.flameperms.utils;
+package me.firewolf8385.flameperms.utils;
 
-import firewolf8385.flameperms.enums.DefaultFontInfo;
+import me.firewolf8385.flameperms.enums.DefaultFontInfo;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

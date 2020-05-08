@@ -1,7 +1,7 @@
-package firewolf8385.flameperms.events;
+package me.firewolf8385.flameperms.events;
 
-import firewolf8385.flameperms.MySQL;
-import firewolf8385.flameperms.api.PlayerAPI;
+import me.firewolf8385.flameperms.MySQL;
+import me.firewolf8385.flameperms.api.PlayerAPI;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;

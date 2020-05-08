@@ -1,7 +1,7 @@
-package firewolf8385.flameperms.api;
+package me.firewolf8385.flameperms.api;
 
-import firewolf8385.flameperms.MySQL;
-import firewolf8385.flameperms.FlamePerms;
+import me.firewolf8385.flameperms.MySQL;
+import me.firewolf8385.flameperms.FlamePerms;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 
