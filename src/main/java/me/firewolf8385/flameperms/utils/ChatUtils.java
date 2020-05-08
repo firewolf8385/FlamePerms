@@ -1,5 +1,6 @@
 package me.firewolf8385.flameperms.utils;
 
+import me.firewolf8385.flameperms.SettingsManager;
 import me.firewolf8385.flameperms.enums.DefaultFontInfo;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -8,6 +9,7 @@ import org.bukkit.entity.Player;
 public class ChatUtils
 {
     private final static int CENTER_PX = 154;
+    private static final SettingsManager settings = SettingsManager.getInstance();
 
     /**
      * A quicker way to send colored messages to the player in chat.
@@ -16,7 +18,7 @@ public class ChatUtils
      */
     public static void chat(Player p, String message)
     {
-        p.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
+        p.sendMessage(translate(message));
     }
 
     /**
@@ -26,7 +28,7 @@ public class ChatUtils
      */
     public static void chat(CommandSender sender, String message)
     {
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
+        sender.sendMessage(translate(message));
     }
 
     /**
@@ -36,7 +38,13 @@ public class ChatUtils
      */
     public static String translate(String message)
     {
-        return ChatColor.translateAlternateColorCodes('&', message);
+        String str = message
+                .replace("color1", settings.getConfig().getString("color1"))
+                .replace("color2", settings.getConfig().getString("color2"))
+                .replace("color3", settings.getConfig().getString("color3"))
+                .replace("color4", settings.getConfig().getString("color4"));
+
+        return ChatColor.translateAlternateColorCodes('&', str);
     }
 
     /**
@@ -46,7 +54,7 @@ public class ChatUtils
      */
     public static void centeredChat(Player player, String message)
     {
-        message = ChatUtils.translate(message);
+        message = translate(message);
 
         if(message == null || message.equals("")) player.sendMessage("");
         message = ChatColor.translateAlternateColorCodes('&', message);
@@ -100,7 +108,7 @@ public class ChatUtils
      */
     public static void centeredChat(CommandSender sender, String message)
     {
-        message = ChatUtils.translate(message);
+        message = translate(message);
 
         if(message == null || message.equals("")) sender.sendMessage("");
         message = ChatColor.translateAlternateColorCodes('&', message);
