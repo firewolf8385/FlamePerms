@@ -1,6 +1,6 @@
 package me.firewolf8385.flameperms;
 
-import me.firewolf8385.flameperms.commands.SP;
+import me.firewolf8385.flameperms.commands.FP;
 import me.firewolf8385.flameperms.events.PlayerJoin;
 import me.firewolf8385.flameperms.events.PlayerQuit;
 import org.bukkit.plugin.Plugin;
@@ -66,7 +66,7 @@ public class FlamePerms extends JavaPlugin
      */
     private void registerCommands()
     {
-        getCommand("flameperms").setExecutor(new SP());
+        getCommand("flameperms").setExecutor(new FP());
     }
 
     /**

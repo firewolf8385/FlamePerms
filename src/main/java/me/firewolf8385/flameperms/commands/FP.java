@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 
 import java.util.Arrays;
 
-public class SP implements CommandExecutor
+public class FP implements CommandExecutor
 {
     private AddPerm addPerm;
     private CreateGroup createGroup;
@@ -20,7 +20,7 @@ public class SP implements CommandExecutor
     private SetOrder setOrder;
 
 
-    public SP()
+    public FP()
     {
         this.addPerm = new AddPerm();
         this.createGroup = new CreateGroup();
