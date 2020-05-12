@@ -3,8 +3,10 @@ package me.firewolf8385.flameperms;
 import me.firewolf8385.flameperms.commands.FP;
 import me.firewolf8385.flameperms.events.PlayerJoin;
 import me.firewolf8385.flameperms.events.PlayerQuit;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitScheduler;
 
 public class FlamePerms extends JavaPlugin
 {
@@ -15,7 +17,7 @@ public class FlamePerms extends JavaPlugin
      *    Code version: 1.0
      ***************************************************************************************/
     private static Plugin pl;
-    private SettingsManager settings = SettingsManager.getInstance();
+    private final SettingsManager settings = SettingsManager.getInstance();
 
     /**
      * Get instance of the plugin.
@@ -42,15 +44,18 @@ public class FlamePerms extends JavaPlugin
         // Checks for any new updates.
         //UpdateChecker update = new UpdateChecker(this.getDescription().getVersion());
 
-        // MySQL connect to database.
-        MySQL.openConnection();
-
-        // Create tables.
-        MySQL.createTables();
-
         // Register Commands / Events
         registerCommands();
         registerEvents();
+
+        // Run tasks async to avoid blocking the main thread.
+        Bukkit.getScheduler().runTaskAsynchronously(this, () -> {
+            // MySQL connect to database.
+            MySQL.openConnection();
+
+            // Create tables.
+            MySQL.createTables();
+        });
     }
 
     /**
