@@ -39,11 +39,11 @@ public class ChatUtils
     public static String translate(String message)
     {
         String str = message
-                .replace("color1", settings.getConfig().getString("color1"))
-                .replace("color2", settings.getConfig().getString("color2"))
-                .replace("color3", settings.getConfig().getString("color3"))
-                .replace("color4", settings.getConfig().getString("color4"))
-                .replace("color5", settings.getConfig().getString("color5"));
+                .replace("color1", settings.getConfig().getString("Theme.color1"))
+                .replace("color2", settings.getConfig().getString("Theme.color2"))
+                .replace("color3", settings.getConfig().getString("Theme.color3"))
+                .replace("color4", settings.getConfig().getString("Theme.color4"))
+                .replace("color5", settings.getConfig().getString("Theme.color5"));
 
         return ChatColor.translateAlternateColorCodes('&', str);
     }
