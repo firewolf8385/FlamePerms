@@ -1,7 +1,6 @@
 package me.firewolf8385.flameperms.commands;
 
 import me.firewolf8385.flameperms.commands.subcommands.*;
-import me.firewolf8385.flameperms.commands.subcommands.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

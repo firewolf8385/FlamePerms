@@ -21,7 +21,7 @@ public class GPermission implements CommandExecutor
             return true;
         }
 
-        String group = args[1].toLowerCase();
+        String group = args[0].toLowerCase();
 
         switch (args[2].toLowerCase())
         {
